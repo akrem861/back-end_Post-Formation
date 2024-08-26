@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: formation
+  jackson:
+    default-property-inclusion: non_empty
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+#  web:
+#    cors:
+#      allow-credentials: true
+#      allowed-origins: "*"
+#      allowed-methods: GET, POST, PUT, DELETE
+#      allowed-headers: "*"
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/formation?createDatabaseIfNotExist=true
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+  profiles:
+    active:
+server:
+  port: 8088
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+application:
+  config:
+    client-url: http://localhost:8087/api/v1/formateur
+
+
